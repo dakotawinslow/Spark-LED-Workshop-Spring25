@@ -1,20 +1,20 @@
 #include <Adafruit_NeoPixel.h>
 
-#define LED_PIN     5   // Pin connected to the Data In of WS2812B
-#define LED_COUNT   64   // Number of LEDs in the strip
+#define D1     5          // Pin connected to the Data In of WS2812B
+#define LED_COUNT   64    // Number of LEDs in the strip
 
-Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip(LED_COUNT, D1, NEO_GRB + NEO_KHZ800);
 
 void setup() {
     strip.begin();
-    strip.show();  // Initialize all pixels to 'off'
+    strip.show();         // Initialize all pixels to 'off'
 }
 
 void loop() {
-    rainbowCycle(20); // Call a rainbow animation
+    rainbowCycle(20, 100); // Reduce brightness to 100 (max 255)
 }
 
-// Function to set a single color
+// Function to set a single color - Not used in the loop right now so currenly never run.
 void setColor(uint8_t red, uint8_t green, uint8_t blue) {
     for (int i = 0; i < LED_COUNT; i++) {
         strip.setPixelColor(i, strip.Color(red, green, blue));
@@ -23,11 +23,11 @@ void setColor(uint8_t red, uint8_t green, uint8_t blue) {
 }
 
 // Function to cycle through the rainbow
-void rainbowCycle(int wait) {
+void rainbowCycle(int wait, uint8_t brightness) {
     for (long firstPixelHue = 0; firstPixelHue < 65536; firstPixelHue += 256) {
         for (int i = 0; i < strip.numPixels(); i++) {
             int pixelHue = firstPixelHue + (i * 65536L / strip.numPixels());
-            strip.setPixelColor(i, strip.gamma32(strip.ColorHSV(pixelHue)));
+            strip.setPixelColor(i, strip.gamma32(strip.ColorHSV(pixelHue, 255, brightness)));
         }
         strip.show();
         delay(wait);

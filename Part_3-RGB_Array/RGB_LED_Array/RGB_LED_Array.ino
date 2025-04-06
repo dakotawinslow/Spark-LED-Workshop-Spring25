@@ -1,6 +1,8 @@
+// Developed for HackHardware and Spark! Mar 2025
+// Released into the public domain.
+
 #include <Adafruit_NeoPixel.h>
 
-#define D1     5          // Pin connected to the Data In of WS2812B
 #define LED_COUNT   64    // Number of LEDs in the strip
 
 Adafruit_NeoPixel strip(LED_COUNT, D1, NEO_GRB + NEO_KHZ800);

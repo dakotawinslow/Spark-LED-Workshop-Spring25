@@ -38,9 +38,12 @@ void loop() {
   }
   
   
-  // set all pins at once
+  // set all pins at once via 8-bit number
   uint8_t pinValues = 0b01010101;
   Serial.print("Setting Byte");
+  // This ones a bit tricky - the function doesn't accept
+  // a byte, but rather a pointer to a byte, so we add the &
+  // to the variable name to get the address of the variable
   sr.setAll(&pinValues); 
   delay(2000);
 

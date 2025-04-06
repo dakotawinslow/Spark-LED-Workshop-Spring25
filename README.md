@@ -1,9 +1,9 @@
-#  introduction
-In this workshop, we will learn how to use the Arduino IDE to program a microcontroller to control lights of various complexity.
+#  Introduction
+In this workshop, we will learn how to use the Arduino IDE to program a Microcontroller to control lights of various complexity. We will use a few specific components, but the concepts explored here are broadly applicable to Microcontroller electronics in general.
 
 # Part 1: Blinking an LED
 ## Introduction
-We will begin with the microcontroller equivilent of "Hello, World!": blinking an LED light. This is a great exercise to do with any new setup to make sure evrything works before moving on to more complex systems. 
+We will begin with the Microcontroller equivalent of "Hello, World!": blinking an LED light. This is a great exercise to do with any new setup to make sure everything works before moving on to more complex systems. 
 
 We will begin by blinking the LED built into the board, then you will modify the given code to blink your own LED. But first, let's familiarize ourselves with the components of our circuit.
 
@@ -11,7 +11,7 @@ We will begin by blinking the LED built into the board, then you will modify the
 ### Breadboard
 A breadboard is a tool used to build and test electronic circuits without needing to solder anything together. It’s perfect for prototyping and quick electronic projects as you can easily make and change connections.
 
-A breadboard has rows and columns of holes where you can insert components like resistors, wires, and microcontrollers. These holes are connected in certain ways that allow electricity to flow between them, creating a circuit.
+A breadboard has rows and columns of holes where you can insert components like resistors, wires, and Microcontrollers. These holes are connected in certain ways that allow electricity to flow between them, creating a circuit.
 
 Rows: The breadboard has long horizontal rows (typically marked with numbers) where components are connected. If you place components in the same row, they are electrically connected inside the breadboard. These are often used for the main part of the circuit.
 
@@ -43,7 +43,7 @@ Ohm’s Law Formula: V = I × R
 ![100 Ohm Resistors](https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ9bISf2scgrVUqt2gAAklB25g8FknBzL7S1dIcPoDOIoQgloFsD11wAgCnG9QJ4AZ4GCofcr1SLRBh8bfzPvyCCh-NhKIGaddxsSbSNr0N4xDLWIhw_IgoZg)
 
 ### Microcontroller
-A microcontroller is like a tiny computer that can be programmed to do specific tasks. It has a processor (the "brain"), memory (to store instructions), and input/output pins (to connect to buttons, sensors, lights, motors, etc). In our case, we are using a microcontroller called ESP8266. Our microcontroller is in the form of a development board, which adds some helper circuitry like a USB communication chip, voltage regulator, and status LEDs. Our devboard is a clone of the popular open-source Wemos D1 mini.
+A Microcontroller is like a tiny computer that can be programmed to do specific tasks. It has a processor (the "brain"), memory (to store instructions), and input/output pins (to connect to buttons, sensors, lights, motors, etc). In our case, we are using a Microcontroller called ESP8266. Our Microcontroller is in the form of a development board, which adds some helper circuitry like a USB communication chip, voltage regulator, and status LEDs. Our devboard is a clone of the popular open-source Wemos D1 mini.
 
 Be careful if you google search for this board - do not confuse it with the also very popular ESP32.
 
@@ -61,14 +61,14 @@ For this workshop, we will give you build diagrams, which show you exactly how t
 
 
 ## Environment Setup
-In order to program your microcontroller, you need a development environment. While you can use any text editor to write the actual code for this project, you will need to use the Arduino IDE to compile and upload your code tothe board. As an added bonus, the arduino IDE manages your packages as well, making the process of writing microcontroller code quick and easy. As a bonus, it's part of a massive open-source software system that makes it easy to find support libraries for nearly every microcontroller and periphrial you can imagine.
+In order to program your Microcontroller, you need a development environment. While you can use any text editor to write the actual code for this project, you will need to use the Arduino IDE to compile and upload your code to the board. As an added bonus, the arduino IDE manages your packages as well, making the process of writing Microcontroller code quick and easy. As a bonus, it's part of a massive open-source software system that makes it easy to find support libraries for nearly every Microcontroller and peripheral you can imagine.
 
 You will want to install the most recent version of the Arduino IDE for your computer from [arduino.cc](https://www.arduino.cc/en/software).
 
-After installing Arduino, there is a small extra step to add support for our particular microcontroller board. Visit https://github.com/esp8266/Arduino?tab=readme-ov-file#installing-with-boards-manager and follow the instructions to add the ESP8266 runtime using the boards manager. 
+After installing Arduino, there is a small extra step to add support for our particular Microcontroller board. Visit https://github.com/esp8266/Arduino?tab=readme-ov-file#installing-with-boards-manager and follow the instructions to add the ESP8266 runtime using the boards manager. 
 
 ## Code
-This circuit uses code to control the microcontroller. You can find this code in the [Part_1-Blink folder](/Part_1-Blink/Spark_Blink_LED/Spark_Blink_LED.ino). Let's look at it all together, then go through it line-by-line:
+This circuit uses code to control the Microcontroller. You can find this code in the [Part_1-Blink folder](/Part_1-Blink/Spark_Blink_LED/Spark_Blink_LED.ino). Let's look at it all together, then go through it line-by-line:
 
 ```
 void setup()
@@ -92,14 +92,14 @@ void loop()
 ### Code Breakdown:
 `void setup()`
 
-`setup()` is a special function in microcontroller programming that runs once when the microcontroller starts or resets.
+`setup()` is a special function in Microcontroller programming that runs once when the Microcontroller starts or resets.
 Inside the `setup()` function, there is a line:
 
 `pinMode(LED_BUILTIN, OUTPUT);`
 
-`pinMode(LED_BUILTIN, OUTPUT)` tells the microcontroller that pin `LED_BUILTIN` is going to be used as an output. What pin *is* that, you ask? You can find out! `LED_BUILTIN` is a **Precompiler Macro**, which is simply a string of characters that gets replaced by a differrent string just before compiling. In the Arduino IDE (V2 and greater only), we can right-click any macro and select "Go to Definition" to see what it resolves to. Try it and you will find that `LED_BUILTIN` is just a stand-in for `2`. The same process is used for `D0`, `D1`, etc. Why not just use the true name of the pin in your code? Abstract pin names make code more portable. If some other board uses pin 13 for its `LED_BUILTIN` (Like the popular Arduino Uno), you can compile the same code for both boards and both will work as expected. 
+`pinMode(LED_BUILTIN, OUTPUT)` tells the Microcontroller that pin `LED_BUILTIN` is going to be used as an output. What pin *is* that, you ask? You can find out! `LED_BUILTIN` is a **Precompiler Macro**, which is simply a string of characters that gets replaced by a different string just before compiling. In the Arduino IDE (V2 and greater only), we can right-click any macro and select "Go to Definition" to see what it resolves to. Try it and you will find that `LED_BUILTIN` is just a stand-in for `2`. The same process is used for `D0`, `D1`, etc. Why not just use the true name of the pin in your code? Abstract pin names make code more portable. If some other board uses pin 13 for its `LED_BUILTIN` (Like the popular Arduino Uno), you can compile the same code for both boards and both will work as expected. 
 
-Besides some power pins, the microcontroller has 2 main types of pins, analog and digital:
+Besides some power pins, the Microcontroller has 2 main types of pins, analog and digital:
 
 - Digital pins can only have two states: ON or OFF. These are represented as either HIGH (3.3V for us, but sometimes 5V on other boards) or LOW (0V or ground). Essentially, digital pins deal with binary signals (either 1 or 0).
 
@@ -107,10 +107,10 @@ Besides some power pins, the microcontroller has 2 main types of pins, analog an
 
 The digital pins can be configured to be either an input or an output:
 
-Output pins are used to send signals from the microcontroller to other components (like LEDs, motors, relays, etc.). When you set a digital pin as an output, you are telling the pin to control something, like turning an LED on or off, or sending a signal to activate a switch.
+Output pins are used to send signals from the Microcontroller to other components (like LEDs, motors, relays, etc.). When you set a digital pin as an output, you are telling the pin to control something, like turning an LED on or off, or sending a signal to activate a switch.
 Input pins are used to receive signals from external components or devices (like buttons, sensors, switches, etc.).
 
-When you set a digital pin as an input, you are telling the microcontroller to read data from something connected to that pin.
+When you set a digital pin as an input, you are telling the Microcontroller to read data from something connected to that pin.
 
 The analog pins are all inputs and cannot be configured to be outputs. If you wanted to produce a voltage of say 2.5V instead of 3.3V or 5V, you could use a digital pin configured to be an output, as long as it has the Pulse Width Modulation (PWM) feature, but that is beyond the scope of this workshop.
 
@@ -143,15 +143,15 @@ So, in summary:
 
 
 ## Your turn
-Play around with the code provided. Once you can successfully blink the onboard LED, try to modify the given code to blink the external LED that is shown in the build diagram above. Remember to use `D5`, not `5`, when referring to the pin marked D5 (and likewise for all maked pins).
+Play around with the code provided. Once you can successfully blink the onboard LED, try to modify the given code to blink the external LED that is shown in the build diagram above. Remember to use `D5`, not `5`, when referring to the pin marked D5 (and likewise for all marked pins).
 
 # Part 2: Shift Register
 ## Introduction
-In the first section, we learned how to blink an LED. Controlling just a few outputs can be very useful, but what if we wanted to make a control panel with a dozen LEDs? We would quickly run out of pins on our microcontroller. Let's learn how to get more control out of just a few pins with a handy tool called a **Shift Register**.
+In the first section, we learned how to blink an LED. Controlling just a few outputs can be very useful, but what if we wanted to make a control panel with a dozen LEDs? We would quickly run out of pins on our Microcontroller. Let's learn how to get more control out of just a few pins with a handy tool called a **Shift Register**.
 
 ## Components
 ### Shift Register
-The SN74HC595N is an 8-bit shift register, meaning it can control 8 outputs using just three control pins from your microcontroller:
+The SN74HC595N is an 8-bit Shift Register, meaning it can control 8 outputs using just three control pins from your Microcontroller:
 
 - Serial Data Input (DS) – Receives the data (1s and 0s) one bit at a time.
 
@@ -159,7 +159,7 @@ The SN74HC595N is an 8-bit shift register, meaning it can control 8 outputs usin
 
 - Storage Clock (STCP or Latch) – Transfers the shifted data to the outputs.
 
-Instead of directly controlling 8 LEDs with 8 pins from your microcontroller, you:
+Instead of directly controlling 8 LEDs with 8 pins from your Microcontroller, you:
 
 - Send a sequence of 8 bits (e.g., 10101010 for alternating LEDs).
 
@@ -167,7 +167,7 @@ Instead of directly controlling 8 LEDs with 8 pins from your microcontroller, yo
 
 - The register stores the data and updates all outputs at once.
 
-We will use a library to handle the serial commnication here, which makes using the Shift Register very easy.
+We will use a library to handle the serial communication here, which makes using the Shift Register very easy.
 
 ![74HC595 Shift Register Pinout](https://i0.wp.com/dronebotworkshop.com/wp-content/uploads/2020/03/74HC595-pinout.jpeg?resize=750%2C422&ssl=1)
 
@@ -185,8 +185,8 @@ This code can be found in the Part_2-Shift_Register folder.
 ```
 #include <ShiftRegister74HC595.h>
 
-// create a global shift register object
-// parameters: <number of shift registers> (data pin (SER), clock pin (SRCLK), latch pin (RCLK))
+// create a global Shift Register object
+// parameters: <number of Shift Registers> (data pin (SER), clock pin (SRCLK), latch pin (RCLK))
 ShiftRegister74HC595<1> sr(D4, D2, D3);
  
 void setup() { 
@@ -226,16 +226,16 @@ void loop() {
 
 Let's go over some of the new things we are seeing here.
 
-First off is `#include <ShiftRegister74HC595.h>`. This line tells the precompiler to bring in all the code from our shift register library so we can use objects defined in that library. It is analogous to an `import` statement in Python.
+First off is `#include <ShiftRegister74HC595.h>`. This line tells the precompiler to bring in all the code from our Shift Register library so we can use objects defined in that library. It is analogous to an `import` statement in Python.
 
-Next is `ShiftRegister74HC595<1> sr(D4, D2, D3);`. This line creates an instance of a new Serial Register object, defines which physical pins its attached to, and names it `sr`. Note the `<1>` at the end of the first term. This is the number of shift registers we have - they can actually be daisy chained to get even *more* outputs if you need them.
+Next is `ShiftRegister74HC595<1> sr(D4, D2, D3);`. This line creates an instance of a new Serial Register object, defines which physical pins its attached to, and names it `sr`. Note the `<1>` at the end of the first term. This is the number of Shift Registers we have - they can actually be daisy chained to get even *more* outputs if you need them.
 
-Our final big new concept is `Serial.begin(9600);`. This line gives us some debuggin capability by opening up a serial connection on the USB port, which the Arduino IDE's Serial Monitor tool can read. This lets us print debugging statements and updates to the console, just like a program that runs on your PC. 9600 here is the baud rate - the speed which we communicate. You will want to make sure that the same baud rate is set on your serial monitor when you connect.
+Our final big new concept is `Serial.begin(9600);`. This line gives us some debugging capability by opening up a serial connection on the USB port, which the Arduino IDE's Serial Monitor tool can read. This lets us print debugging statements and updates to the console, just like a program that runs on your PC. 9600 here is the baud rate - the speed which we communicate. You will want to make sure that the same baud rate is set on your serial monitor when you connect.
 
 The rest of the code gives examples of the various ways to interact with the Shift Register: setting all pins to the same value, setting individual pins, and setting all at once via bitstring. Note the use of a for() loop in the individual pins section - if you have never written a for loop in C/C++ before, make a note of the syntax for later.
 
 ## Your Turn
-Build the circuit and run the demo code; you should see the lights change as the serial monitor prints out each step. Once you get it working, add a new block (or a whole new sketch, if you prefer) that counts up, in binary, on the LEDs. Each step can be al long or as short as you like, as long as they are distinguishable. feel free to do this however seems best to you, but you should use the shift register to drive your LEDs.
+Build the circuit and run the demo code; you should see the lights change as the serial monitor prints out each step. Once you get it working, add a new block (or a whole new sketch, if you prefer) that counts up, in binary, on the LEDs. Each step can be as long or as short as you like, as long as they are distinguishable. feel free to do this however seems best to you, but you should use the Shift Register to drive your LEDs.
 
 # Part 3: RGB LED Matrix
 ## Introduction
@@ -247,7 +247,7 @@ An LED array is a group of LEDs arranged in a specific pattern or grid, allowing
 
 Our array is composed of WS2812 LED modules (commonly referred to under the AdaFruit trademarked name NEOPIXELS), which use a clever messaging system to set every LED in the chain without requiring an individual wire for every LED. In fact, you can set the individual brightness for each color channel at each position - all with one wire!
 
-They are controlled by creating a packet of data that contains data for every pixel in one big stack. The entire stack is fed into the first pixel, which pops off the first RGB values, sets itself to them, and then passes the stack along to the next pixel. If the pixels are all lined up, we reliably send data to any arbitrary pixel by just passing it down the chain (and making sure the stgack started out the right size).
+They are controlled by creating a packet of data that contains data for every pixel in one big stack. The entire stack is fed into the first pixel, which pops off the first RGB values, sets itself to them, and then passes the stack along to the next pixel. If the pixels are all lined up, we reliably send data to any arbitrary pixel by just passing it down the chain (and making sure the stack started out the right size).
 
 Again, we use a library to help us with the communications protocol. Communications libraries make it possible to work with very complicated components by abstracting them into simple functions. 
 
@@ -256,7 +256,7 @@ Again, we use a library to help us with the communications protocol. Communicati
 ![LED Layout](https://m.media-amazon.com/images/I/71AHPq-bDKL._AC_SL1500_.jpg)
 
 ## Schematic
-You don't have to disassemble the prior setup if you don't to, but be careful that there are no conflicts (two objects should not be connected to the same microcontroller pin).
+You don't have to disassemble the prior setup if you don't want to, but be careful that there are no conflicts (two objects should not be connected to the same Microcontroller pin).
 
 ![Part 3 Diagram](/Part_3-RGB_Array/RGB_Array_Breadboard_bb.png)
 
@@ -283,7 +283,7 @@ void loop() {
     rainbowCycle(20, 100); // Reduce brightness to 100 (max 255)
 }
 
-// Function to set a single color - Not used in the loop right now so currenly never run.
+// Function to set a single color - Not used in the loop right now so currently never run.
 void setColor(uint8_t red, uint8_t green, uint8_t blue) {
     for (int i = 0; i < LED_COUNT; i++) {
         strip.setPixelColor(i, strip.Color(red, green, blue));
@@ -306,7 +306,7 @@ void rainbowCycle(int wait, uint8_t brightness) {
 
 New features this time:
 
-`#define LED_COUNT   64`: We saw this indirectly in the first section, but now we define our own macro. Doing this makes it easy to switch to a differrent size array in the future.
+`#define LED_COUNT   64`: We saw this indirectly in the first section, but now we define our own macro. Doing this makes it easy to switch to a different size array in the future.
 
 For the functions related to the `Adafruit_NeoPixel strip()` object, it's best to review the documentation at [adafruit](https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use), where there are many other tutorials to look over.
 
@@ -314,7 +314,7 @@ For the functions related to the `Adafruit_NeoPixel strip()` object, it's best t
 
 
 After reviewing the above code, it's time to build something of your own! This time, the world is your oyster - you can do anything you like! Some ideas include:
-- Changing the color based on the state of pins on the microcontroller (take a look at [digitalread()](https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/) for detecting pin values)
+- Changing the color based on the state of pins on the Microcontroller (take a look at [digitalread()](https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/) for detecting pin values)
 - Drawing letters or images on the array (have a look at the [Adafruit NeoMatrix library](https://learn.adafruit.com/adafruit-neopixel-uberguide/neomatrix-library))
 - Setting up a simple webpage to control the array with over WiFi ([See this Tutorial](https://randomnerdtutorials.com/esp32-esp8266-input-data-html-form/))
 
